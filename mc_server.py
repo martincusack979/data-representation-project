@@ -14,6 +14,18 @@ def getAll():
 def findById(id):
         return "served by find by id with id" + str (id)
 
+@app.route('/dvds', methods =['POST'])
+def create():
+        return "served by Create"
+
+@app.route('/dvds', methods =['PUT'])
+def update():
+        return "served by Update with id"
+
+@app.route('/dvds', methods =['DELETE'])
+def delete():
+        return "served by Delete with id"
+
 
 if __name__ == "__main__":
             app.run(debug = True)
