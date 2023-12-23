@@ -36,8 +36,8 @@ def findById(id):
         return jsonify (foundDvds[0])
         
 # create dvd
-# check that create works - curl -X POST -H "content-type:application/json" -d "{\"Title\":\"test\", 
-# \"Director\":\"some guy\", \"Year\":\"1999\", \"Price\":123}" http://127.0.0.1:5000/dvds
+# test curl: curl -X POST -H "content-type:application/json" -d "{\"Title\":\"test\", 
+# \"Director\":\"some dude\", \"Year\":\"1999\", \"Price\":123}" http://127.0.0.1:5000/dvds
 
 @app.route('/dvds', methods =['POST'])
 def create():
@@ -58,26 +58,31 @@ def create():
     return jsonify(dvd)
 
 # update dvds
-@app.route('/dvds', methods =['PUT'])
-def update():
+# test curl: curl -X PUT -d "{\"Title\":\"The Shining\", \"Price\":20}" -H "content-type:application/json" http://127.0.0.1:5000/dvds/1
+@app.route('/dvds/<int:id>', methods =['PUT'])
+def update(id):
         foundDvds = list(filter(lambda t:  t["ID"]== id, dvds))
         if len (foundDvds) == 0:
                 return jsonify ({}), 404
         currentDvd = foundDvds[0]
-        if "Title" in request.json:
-                currentDvd["Title"] = request.json["Title"]
-        if "Director" in request.json:
-                currentDvd["Director"] = request.json["Director"]        
-        if "Year" in request.json:
-                currentDvd["Year"] = request.json["Year"]
-        if "Price" in request.json:
-                currentDvd["Price"] = request.json["Price"]
+        if 'Title' in request.json:
+                currentDvd['Title'] = request.json['Title']
+        if 'Director' in request.json:
+                currentDvd['Director'] = request.json['Director']        
+        if 'Year' in request.json:
+                currentDvd['Year'] = request.json['Year']
+        if 'Price' in request.json:
+                currentDvd['Price'] = request.json['Price']
         return jsonify(currentDvd)                
 
 # delete dvd
-@app.route('/dvds', methods =['DELETE'])
-def delete():
-        return "served by Delete with id"
+@app.route('/dvds/<int:id>', methods =['DELETE'])
+def delete(id):
+        foundDvds = list(filter(lambda t:  t["ID"]== id, dvds))
+        if len (foundDvds) == 0:
+                return jsonify ({}), 404
+        dvds.remove(foundDvds[0])        
+        return jsonify({"done":True})
 
 
 if __name__ == "__main__":
