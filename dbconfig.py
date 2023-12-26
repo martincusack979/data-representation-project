@@ -1,5 +1,5 @@
 mysql = {
-    'host':"local",
+    'host':"localhost",
     'user':"root",
     'password':"",
     'database':"dvds"
