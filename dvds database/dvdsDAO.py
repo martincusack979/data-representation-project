@@ -1,9 +1,7 @@
-# DAO 
-
 import mysql.connector
 import dbconfig as cfg
 class dvdsDAO:
-    connection=""
+    connection=''
     cursor =''
     host=       ''
     user=       ''
