@@ -1,3 +1,5 @@
+# DAO 
+
 import mysql.connector
 import dbconfig as cfg
 class dvdsDAO:
@@ -7,7 +9,7 @@ class dvdsDAO:
     user=       ''
     password=   ''
     database=   ''
-    
+    # host, user etc info stored in dbconfig.py
     def __init__(self):
         self.host=       cfg.mysql['host']
         self.user=       cfg.mysql['user']

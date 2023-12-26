@@ -9,13 +9,13 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
-sql="insert into dvds (title, director, year, price) values (%s,%s,%s,%s)"
-values = ("The Shining", "Stanley Kubrick", 1980, 20)
+sql="delete from dvds where id = %s"
+values = (1,)
 
 cursor.execute(sql, values)
 
 db.commit()
-print("record inserted, ID:", cursor.lastrowid)
+print("delete done")
 
-db.close()
 cursor.close()
+db.close()
