@@ -30,7 +30,7 @@ class dvdsDAO:
          
     def create(self, values):
         cursor = self.getcursor()
-        sql="insert into dvds (title,director, year, price) values (%s,%s,%s,%s)"
+        sql="insert into dvds (title, director, year, price) values (%s,%s,%s,%s)"
         cursor.execute(sql, values)
 
         self.connection.commit()
@@ -65,7 +65,7 @@ class dvdsDAO:
 
     def update(self, values):
         cursor = self.getcursor()
-        sql="update dvds set title= %s,author=%s, price=%s  where id = %s"
+        sql="update dvds set title= %s,director=%s, year=%s, price=%s  where id = %s"
         cursor.execute(sql, values)
         self.connection.commit()
         self.closeAll()
@@ -83,7 +83,7 @@ class dvdsDAO:
         print("delete done")
 
     def convertToDictionary(self, result):
-        colnames=['id','title','author', "price"]
+        colnames=['id','title','director', 'year', 'price']
         item = {}
         
         if result:

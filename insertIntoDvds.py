@@ -8,7 +8,7 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
-sql="insert into dvds (title, director, year, price) values (%s,%s, %s, %s)"
+sql="insert into dvds (title,director, year, price) values (%s,%s,%s,%s)"
 values = ("Blue Velvet", "David Lynch", 1986, 28)
 
 cursor.execute(sql, values)
