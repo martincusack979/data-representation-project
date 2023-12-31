@@ -1,7 +1,5 @@
 from flask import Flask, request, jsonify, redirect, abort
 
-
-
 app = Flask(__name__)
 
 dvds = [
