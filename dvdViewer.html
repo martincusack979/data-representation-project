@@ -6,6 +6,11 @@
 
  <body>
     <h1>DVDs</h1>
+
+    <div>
+        <span><button id= "createLabel" onclick="doCreate()">Create a DVD</span>
+        <span><button id= "createLabel" style="display:none">Update this</span>
+     </div>  
     
      <div>
      <table class = "table" id = "dvdTable">
@@ -47,9 +52,9 @@
             <td>20</td>
             <td><button>update</button></td>
             <td><button>delete</button></td>
-        
-        <tr>    
+        </tr>    
 
+        <tr>
             <td>4</td>
             <td>Malcolm X</td>
             <td>Spike Lee</td>
@@ -77,6 +82,7 @@
             <td>22</td>
             <td><button>update</button></td>
             <td><button>delete</button></td>
+        </tr>
 
         <tr>        
             <td>7</td>
@@ -106,32 +112,28 @@
             <td>28</td>
             <td><button>update</button></td>
             <td><button>delete</button></td>
+        </tr>    
 
-     </table>
-
-     <h2>
-        <span id= "createLabel">Create a</span>
-        <span id= "createLabel" style="display:none">Update this</span> DVD
-        </h2>
+     </table> </div>  
    
-     <div id='createUpdateForm' style="display:none">
+     <div> 
      id <input type="text" name="id"><br/>
      Title <input type="text" name="title"><br/>
      Director <input type="text" name="director"><br/>
      Year <input type="text" name="year"><br/>
      Price <input type="number" name="price"><br/>
-     Just to show select <select name="status">
+     Status <select name="status">
         <option value="instock">in stock</option>
         <option value="outstock">out of stock</option>
         <option value="other">out of print</option>
-        </select><br/>
+        </select><br/> </div>
 
-        
+     <div>   
         <span><button id="button-doCreate" onclick="doCreate()">Create</button></span>
         <span><button id="button-showCreate" style="display:none" onclick="showCreate()">Update</button></span>
-              <button id="button-doUpdate" onclick="doUpdate()">Update</button>
-         
-       <td><button onclick="showUpdate(this)">Update</button></td>
+        <span><button id="button-doUpdate" onclick="doUpdate()">Update</button>
+        <span><button id="button-showUpdate" style="display:none" onclick="showUpdate()">Update</button></span>
+     </div>
               
               
          <script>
