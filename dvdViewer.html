@@ -8,9 +8,9 @@
     <h1>DVDs</h1>
 
     <div>
-        <span><button id= "createLabel" onclick="doCreate()">Create a DVD</span>
-        <span><button id= "createLabel" style="display:none">Update this</span>
-     </div>  
+        <span><button id= "createLabel" onclick="doCreate()">Create a DVD</button></span>
+        <span><button id= "createLabel" style="display:none">Update this</button></span>
+    </div>  
     
      <div>
      <table class = "table" id = "dvdTable">
@@ -130,12 +130,11 @@
 
      <div>   
         <span><button id="button-doCreate" onclick="doCreate()">Create</button></span>
-        <span><button id="button-showCreate" style="display:none" onclick="showCreate()">Update</button></span>
+        <span><button id="button-showCreate" style="display:none" onclick="showCreate()">Create</button></span>
         <span><button id="button-doUpdate" onclick="doUpdate()">Update</button>
         <span><button id="button-showUpdate" style="display:none" onclick="showUpdate()">Update</button></span>
      </div>
-              
-              
+
          <script>
           function showCreate(){
             document.getElementById('button-showCreate').style.display="none"
