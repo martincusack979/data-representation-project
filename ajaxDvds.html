@@ -103,7 +103,7 @@
        	    var dvd = {}
         	dvd.id = form.querySelector('input[name="id"]').value
         	dvd.title = form.querySelector('input[name="title"]').value
-        	dvd.author = form.querySelector('input[name="author"]').value
+        	dvd.director = form.querySelector('input[name="author"]').value
         	dvd.price = form.querySelector('input[name="price"]').value
         	//console.log(JSON.stringify(dvd))
             return dvd
@@ -113,7 +113,7 @@
         	form.querySelector('input[name="id"]').disabled = true
        		form.querySelector('input[name="id"]').value  = dvd.id
        		form.querySelector('input[name="title"]').value= dvd.title
-        	form.querySelector('input[name="author"]').value= dvd.author
+        	form.querySelector('input[name="director"]').value= dvd.director
         	form.querySelector('input[name="price"]').value= dvd.price
     }
 
