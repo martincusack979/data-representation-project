@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <title>Lecture ajax</title>
+        <title>DVDs</title>
     </head>
     <body>
         <button onclick="readJSON()">go</button>
@@ -9,7 +9,7 @@
         <script>
             function readJSON(){
                 $.ajax({
-                    "url":"https://api.coindesk.com/v1/bpi/currentprice.json",
+                    "url":"http://127.0.0.1:5000/dvds",
                     "method":"GET",
                     "data":"",
                     "dataType":"JSON",
@@ -32,7 +32,7 @@
 </html>
         </div>
         <div id="createUpdateForm" style="display:none">
-            <!-- spans are like divs but do not go onto a new line -->
+            
             <h2><span id="createLabel">Create a</span> <span id="updateLabel">Update this</span> dvd</h2>
             id <input type="text" name="id"><br/>
             Title <input type="text" name="title"><br/>
@@ -42,14 +42,14 @@
            
             <span><button id="button-doCreate" onclick="doCreate()">Create</button></span>
  			<span><button id="button-doUpdate" onclick="doUpdate()">Update</button></span>
-             <!-- "display:none" will make it hidden-->
+            
 
 
         </div>
         
     </body>
     <script>
-        //console.log("hello world")
+        
         function showCreate(){
             document.getElementById("createUpdateForm").style.display = "block"
             
@@ -75,8 +75,8 @@
 
             rowElement= buttonElement.parentNode.parentNode
             dvd = getdvdFromRow(rowElement)
-            //console.log("updating")
-            //console.log(dvd)
+            
+
             populateFormWithDvd(dvd)
             
         }
@@ -92,7 +92,7 @@
 
             form.querySelector('input[name="id"]').disabled = false
             form.querySelector('input[name="id"]').value  =''
-            form.querySelector('input[name="author"]').value=''
+            form.querySelector('input[name="director"]').value=''
             form.querySelector('input[name="title"]').value=''
             form.querySelector('input[name="price"]').value=''
         }
@@ -103,7 +103,7 @@
        	    var dvd = {}
         	dvd.id = form.querySelector('input[name="id"]').value
         	dvd.title = form.querySelector('input[name="title"]').value
-        	dvd.director = form.querySelector('input[name="author"]').value
+        	dvd.director = form.querySelector('input[name="director"]').value
         	dvd.price = form.querySelector('input[name="price"]').value
         	//console.log(JSON.stringify(dvd))
             return dvd
@@ -114,6 +114,7 @@
        		form.querySelector('input[name="id"]').value  = dvd.id
        		form.querySelector('input[name="title"]').value= dvd.title
         	form.querySelector('input[name="director"]').value= dvd.director
+            form.querySelector('input[name="year"]').value= dvd.year
         	form.querySelector('input[name="price"]').value= dvd.price
     }
 
@@ -129,13 +130,15 @@
             var cell2 = rowElement.insertCell(1);
             cell2.innerHTML = dvd.title
             var cell3 = rowElement.insertCell(2);
-            cell3.innerHTML = dvd.author
+            cell3.innerHTML = dvd.director
             var cell4 = rowElement.insertCell(3);
-            cell4.innerHTML = dvd.price
+            cell4.innerHTML = dvd.year
             var cell5 = rowElement.insertCell(4);
-            cell5.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
+            cell5.innerHTML = dvd.price
             var cell6 = rowElement.insertCell(5);
-            cell6.innerHTML = '<button onclick=doDelete(this)>delete</button>'
+            cell6.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
+            var cell7 = rowElement.insertCell(6);
+            cell7.innerHTML = '<button onclick=doDelete(this)>delete</button>'
 
         }
         function getdvdFromRow(rowElement){
