@@ -35,9 +35,11 @@ For this reason, I decided to choose the simpler project option so that I would 
 Using HTML and JavaScript I created a webpage called "DVDs", modelled on the Books example outlined in the course notes.  "DVDs" is a simple table of DVD titles
 listing an ID number, a title, a director, the year of release and the DVD price. The code is contained in **dvdViewer.html**
 
-The server **dvds_server.py** was created using the Flask operations server framework in Python....
+The server **dvds_server.py** was created using the Flask operations server framework in Python.  The server serves a RESTful API which can perform CRUD operations
+on the "DVDs" table.
 
-The database table DVDS was created using mySQL....
+The database table "DVDs" was created using mySQL (downloaded using Wampserver).  The code for the DAO (Database object) is contained in the file dvdsDAO.py in the 
+folder **dvds_Database_files**.
 
 ## References
 ***
@@ -52,6 +54,8 @@ The database table DVDS was created using mySQL....
 [5] https://www.w3schools.com/jquery/default.asp
 
 [6] https://www.datacamp.com/tutorial/my-sql-tutorial
+
+[7] https://martin-thoma.com/configuration-files-in-python/
 
 
 
