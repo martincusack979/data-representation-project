@@ -19,11 +19,10 @@ This repository is submitted in partial fullfillment of a H.Dip in Science in Da
 5. Run using Python interpreter 3.9.18.
 
 ### This repository contains: 
-1. A folder entitled **dvds_Database_files** containing all the Python files used in creating the database functions for the project.
-2. A folder entitled **HTMLfiles** containing all the separate HTML and JavaScript files which were created for the web interface.
-3. A HTML file entitled **dvdViewer.html** which contains the web interface and the AJAX requests required to perfrom CRUD operations.
-4. A Python file entitled **dvds_server.py** which contains the Flask server which was created for the project. The server
- provides a RESTful API which performs CRUD operations on DVDs.
+1. A folder entitled **dvds_Database_files** containing all the Python files used in creating the database table entitled "DVDs".
+2. A HTML file entitled **dvdViewer.html** which contains the interface and AJAX requests required to perform CRUD operations on the "DVDs" webpage.
+4. A Python file entitled **dvds_server.py** which runs the Flask server created for the project. The server
+ serves a RESTful API which can perform CRUD operations on the "DVDs" webpage.
 5. An **images** folder.
 6. A **.gitignore** file and a **readme** file.
 
@@ -33,15 +32,25 @@ I decided to choose the type A, or simple, project option.  I went with this opt
 (I had not taken the "Applied Databases" or "Web Aplications" modules before because I had deferred these and will be taking them in the Spring 2024 semester).  
 For this reason, I decided to choose the simpler project option so that I would not be overloaded with too much new material which I was not familiar with.
 
-I created a webpage called DVDS, modelled on the Books example outlined in the course notes.
+Using HTML and JavaScript I created a webpage called "DVDs", modelled on the Books example outlined in the course notes.  "DVDs" is a simple table of DVD titles
+listing an ID number, a title, a director, the year of release and the DVD price. The code is contained in **dvdViewer.html**
+
+The server **dvds_server.py** was created using the Flask operations server framework in Python....
+
+The database table DVDS was created using mySQL....
 
 ## References
 ***
 [1] https://www.w3schools.com/js/js_ajax_intro.asp
+
 [2] https://www.w3schools.com/js/default.asp
+
 [3] https://realpython.com/python-mysql/
-[4] (for myQL database) https://www.wampserver.com/en/
+
+[4] (for mySQL database) https://www.wampserver.com/en/
+
 [5] https://www.w3schools.com/jquery/default.asp
+
 [6] https://www.datacamp.com/tutorial/my-sql-tutorial
 
 
