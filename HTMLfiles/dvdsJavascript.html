@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1>Dvds</h1>
-        <div><button id="button-showCreate" onclick="showCreate()">Create a Dvd</button><br/><br/></div>
+        <div><button id="button-showCreate" onclick="showCreate()">Create a Dvd</button><br/></div>
         <div>
             <table class = "table" border="1" id="dvdTable">
                 <tr>
@@ -249,7 +249,7 @@
             console.log("creating a dvd")
             dvd = getdvdFromForm()
             console.log(dvd)
-            adddvdToTable(dvd)
+            addDvdToTable(dvd)
             showViewall()
             clearForm()
         }

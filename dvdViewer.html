@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1>Dvds</h1>
-        <div><button id="button-showCreate" onclick="showCreate()">Create a Dvd</button><br/><br/></div>
+        <div><button id="button-showCreate" onclick="showCreate()">Create a Dvd</button><br/></div>
         <div>
             <table class = "table" border="1" id="dvdTable">
                 <tr>
@@ -249,7 +249,7 @@
             console.log("creating a dvd")
             dvd = getdvdFromForm()
             console.log(dvd)
-            adddvdToTable(dvd)
+            addDvdToTable(dvd)
             showViewall()
             clearForm()
         }
@@ -271,14 +271,14 @@
         }
         function getAllAjax(){
         $.ajax({
-            "url": "http://127.0.0.1:5000/Dvds",
+            "url": "http://127.0.0.1:5000/dvds",
             "method":"GET",
             "data":"",
             "dataType": "JSON",
             "success":function(result){
                 //console.log(result);
-                for (Dvd of result){
-                    addDvdToTable(Dvd);
+                for (dvd of result){
+                    addDvdToTable(dvd);
                 }
                 
             },
@@ -289,17 +289,17 @@
 
         }
         function createDvdAjax(Dvd){
-        //var car = {"reg":"12 D 1234","make":"Fiat","model":"Punto","price":3000}
+        
         console.log(JSON.stringify(Dvd));
         $.ajax({
-            "url": "http://127.0.0.1:5000/Dvds",
+            "url": "http://127.0.0.1:5000/dvds",
             "method":"POST",
             "data":JSON.stringify(Dvd),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success":function(result){
                 //console.log(result);
-                Dvd.id = result.id
+                dvd.id = result.id
                 addDvdToTable(Dvd)
                 clearForm()
                 showViewAll()
@@ -310,10 +310,10 @@
         });
         }
         function updateDvdAjax(Dvd){
-        //var car = {"reg":"12 D 1234","price":8000}
+        
         console.log(JSON.stringify(Dvd));
         $.ajax({
-            "url": "http://127.0.0.1:5000/Dvds/"+encodeURI(Dvd.id),
+            "url": "http://127.0.0.1:5000/dvds/"+encodeURI(Dvd.id),
             "method":"PUT",
             "data":JSON.stringify(Dvd),
             "dataType": "JSON",
@@ -331,7 +331,7 @@
         
         //console.log(JSON.stringify('deleting '+id));
         $.ajax({
-            "url": "http://127.0.0.1:5000/Dvds/"+encodeURI(id),
+            "url": "http://127.0.0.1:5000/dvds/"+encodeURI(id),
             "method":"DELETE",
             "data":"",
             "dataType": "JSON",
