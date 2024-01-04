@@ -8,7 +8,6 @@ This repository is submitted in partial fullfillment of a H.Dip in Science in Da
 ***
 
 ## Introduction
-***
 
 ### How to use this repository
 
