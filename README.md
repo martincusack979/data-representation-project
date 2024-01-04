@@ -27,20 +27,19 @@ This repository is submitted in partial fullfillment of a H.Dip in Science in Da
 
 ### Project - Flask server with RESTful API:   
 
-I decided to choose the type A, or simple, project option.  I went with this option mainly because so much of the content in the module was quite new to me 
-(I had not taken the "Applied Databases" or "Web Aplications" modules before because I had deferred these and will be taking them in the Spring 2024 semester).  
-For this reason, I decided to choose the simpler project option so that I would not be overloaded with too much new material which I was not familiar with.
+I decided to choose the type A, or simple, project option.  I chose this option because so much of the content in the module was quite new to me, 
+as I had not taken the "Applied Databases" or "Web Applications" modules before. (I had deferred these and will be taking them - or their new equivalents - in the Spring 2024 semester).  
+For this reason, I decided to go with the simpler project option so that I would not be overloaded with too much new material which I was not familiar with.
 
-Using HTML and JavaScript I created a webpage called "DVDs", modelled on the Books example outlined in the course notes.  "DVDs" is a simple table of DVD titles
+Using HTML and JavaScript I created a rudimentary webpage called "DVDs", modelled on the Books example outlined in the course notes.  "DVDs" is a simple table of DVD titles
 (see image below) listing an ID number, a title, a director, the year of release and the DVD price. The code is contained in **dvdViewer.html**.
 
 ![viewDvds](https://github.com/martincusack979/data-representation-project/blob/main/images/viewDvds.png)
 
 The server **dvds_server.py** was created using the Flask operations server framework in Python.  The server serves a RESTful API which can perform CRUD operations
-on the "DVDs" table.
+on the "DVDs" table and links to a database table.
 
-The database table "DVDs" was created using mySQL (downloaded using Wampserver).  The code for the DAO (Database object) is contained in the file dvdsDAO.py in the 
-folder **dvds_Database_files**.
+The database table "DVDs" was created using mySQL (downloaded using Wampserver).  The code for the DAO (Database object) is contained in the file **dvdsDAO.py**.
 
 ![dvdsMySQL](https://github.com/martincusack979/data-representation-project/blob/main/images/dvdsMySQL.png)
 
