@@ -12,19 +12,19 @@ This repository is submitted in partial fullfillment of a H.Dip in Science in Da
 
 ### How to use this repository
 
-1. Install latest version of Anaconda.
-2. Install the latest version of Visual Studio Code.
-3. Clone the repository at https://github.com/martincusack979/data-representation-project
-4. Open the repository in Visual Studio Code.
-5. Run using Python interpreter 3.9.18.
+* Install latest version of Anaconda.
+* Install the latest version of Visual Studio Code.
+* Clone the repository at https://github.com/martincusack979/data-representation-project
+* Open the repository in Visual Studio Code.
+* Run using Python interpreter 3.9.18.
 
 ### This repository contains: 
-1. A folder entitled **dvds_Database_files** containing all the Python files used in creating the database table entitled "DVDs".
-2. A HTML file entitled **dvdViewer.html** which contains the interface and AJAX requests required to perform CRUD operations on the "DVDs" webpage.
-4. A Python file entitled **dvds_server.py** which runs the Flask server created for the project. The server
+* A folder entitled **dvds_Database_files** containing all the Python files used in creating the database table entitled "DVDs".
+* A HTML file entitled **dvdViewer.html** which contains the interface and AJAX requests required to perform CRUD operations on the "DVDs" webpage.
+* A Python file entitled **dvds_server.py** which runs the Flask server created for the project. The server
  serves a RESTful API which can perform CRUD operations on the "DVDs" webpage.
-5. An **images** folder.
-6. A **.gitignore** file and a **readme** file.
+* An **images** folder.
+* A **.gitignore** file and a **readme** file.
 
 ### Project - Flask server with RESTful API:   
 
@@ -34,7 +34,7 @@ For this reason, I decided to choose the simpler project option so that I would 
 
 Using HTML and JavaScript I created a webpage called "DVDs", modelled on the Books example outlined in the course notes.  "DVDs" is a simple table of DVD titles
 (see image below) listing an ID number, a title, a director, the year of release and the DVD price. The code is contained in **dvdViewer.html**.
-
+![viewDvds](https://github.com/martincusack979/data-representation-project/blob/main/images/viewDvds.png)
 
 
 The server **dvds_server.py** was created using the Flask operations server framework in Python.  The server serves a RESTful API which can perform CRUD operations
@@ -42,6 +42,7 @@ on the "DVDs" table.
 
 The database table "DVDs" was created using mySQL (downloaded using Wampserver).  The code for the DAO (Database object) is contained in the file dvdsDAO.py in the 
 folder **dvds_Database_files**.
+![dvdsMySQL](https://github.com/martincusack979/data-representation-project/blob/main/Images/dvdsMySQL.png)
 
 ## References
 ***
