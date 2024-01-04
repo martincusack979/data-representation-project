@@ -33,7 +33,9 @@ I decided to choose the type A, or simple, project option.  I went with this opt
 For this reason, I decided to choose the simpler project option so that I would not be overloaded with too much new material which I was not familiar with.
 
 Using HTML and JavaScript I created a webpage called "DVDs", modelled on the Books example outlined in the course notes.  "DVDs" is a simple table of DVD titles
-listing an ID number, a title, a director, the year of release and the DVD price. The code is contained in **dvdViewer.html**
+(see image below) listing an ID number, a title, a director, the year of release and the DVD price. The code is contained in **dvdViewer.html**.
+
+
 
 The server **dvds_server.py** was created using the Flask operations server framework in Python.  The server serves a RESTful API which can perform CRUD operations
 on the "DVDs" table.
