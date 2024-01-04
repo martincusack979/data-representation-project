@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, redirect, abort
+from flask import Flask, jsonify, request, abort
+from dvdsDAO import dvdsDAO
 
 app = Flask(__name__, static_url_path='', static_folder='.')
 
@@ -23,69 +24,68 @@ def index():
 # get all dvds
 @app.route('/dvds')
 def getAll():
-        return jsonify(dvds)
+    results = dvdsDAO.getAll()
+    return jsonify(results)
 
 # find by ID
 @app.route('/dvds/<int:id>')
 def findById(id):
-        foundDvds = list(filter(lambda t:  t["ID"]== id, dvds))
-        if len (foundDvds) == 0:
-                return jsonify ({}), 204
-        return jsonify (foundDvds[0])
-        
+    founddvd = dvdsDAO.findByID(id)
+
+    return jsonify(founddvd)
+
 # create dvd
 # test curl: curl -X POST -H "content-type:application/json" -d "{\"Title\":\"test\", 
 # \"Director\":\"some dude\", \"Year\":\"1999\", \"Price\":123}" http://127.0.0.1:5000/dvds
-
-@app.route('/dvds', methods =['POST'])
+@app.route('/dvds', methods=['POST'])
 def create():
-    global nextID
+    
     if not request.json:
         abort(400)
-
-    dvd = {
-        "id" : nextID,
-        "Title" : request.json["Title"],
-        "Director" : request.json["Director"],
-        "Year" : request.json["Year"],
-        "Price" : request.json ["Price"]     
-        }
     
-    dvds.append(dvd)
-    nextID += 1
+    dvd = {
+        "title": request.json['title'],
+        "director": request.json['director'],
+        "year": request.json['year'],
+        "price": request.json['price'],
+    }
+    values =(dvd['title'],dvd['director'],dvd['year'], dvd['price'])
+    newId = dvdsDAO.create(values)
+    dvd['id'] = newId
     return jsonify(dvd)
 
 # update dvds
 # test curl: curl -X PUT -d "{\"Title\":\"The Shining\", \"Price\":20}" -H "content-type:application/json" http://127.0.0.1:5000/dvds/1
-@app.route('/dvds/<int:id>', methods =['PUT'])
+@app.route('/dvds/<int:id>', methods=['PUT'])
 def update(id):
-        foundDvds = list(filter(lambda t:  t["ID"]== id, dvds))
-        if len (foundDvds) == 0:
-                return jsonify ({}), 404
-        currentDvd = foundDvds[0]
-        if 'Title' in request.json:
-                currentDvd['Title'] = request.json['Title']
-        if 'Director' in request.json:
-                currentDvd['Director'] = request.json['Director']        
-        if 'Year' in request.json:
-                currentDvd['Year'] = request.json['Year']
-        if 'Price' in request.json:
-                currentDvd['Price'] = request.json['Price']
-        return jsonify(currentDvd)                
+    founddvd = dvdsDAO.findByID(id)
+    if not founddvd:
+        abort(404)
+    
+    if not request.json:
+        abort(400)
+    reqJson = request.json
+    if 'price' in reqJson and type(reqJson['price']) is not int:
+        abort(400)
 
+    if 'title' in reqJson:
+        founddvd['title'] = reqJson['title']
+    if 'director' in reqJson:
+        founddvd['director'] = reqJson['director']
+    if 'year' in reqJson:
+        founddvd['year'] = reqJson['year']
+    if 'price' in reqJson:
+        founddvd['price'] = reqJson['price']
+    values = (founddvd['title'],founddvd['director'],founddvd['year'], founddvd['price'],founddvd['id'])
+    dvdsDAO.update(values)
+    return jsonify(founddvd)
+        
 # delete dvd
-@app.route('/dvds/<int:id>', methods =['DELETE'])
+@app.route('/dvds/<int:id>' , methods=['DELETE'])
 def delete(id):
-        foundDvds = list(filter(lambda t:  t["ID"]== id, dvds))
-        if len (foundDvds) == 0:
-                return jsonify ({}), 404
-        dvds.remove(foundDvds[0])        
-        return jsonify({"done":True})
+    dvdsDAO.delete(id)
+    return jsonify({"done":True})
 
 
-if __name__ == "__main__":
-            app.run(debug = True)
-
-
-
-
+if __name__ == '__main__' :
+    app.run(debug= True)
