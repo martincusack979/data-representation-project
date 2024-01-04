@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, redirect, abort
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='.')
 
 dvds = [
    {"ID": 1, "Title": "The Shining", "Director": "Stanley Kubrick", "Year": "1980", "Price": 20},
