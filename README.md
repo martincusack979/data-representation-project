@@ -2,7 +2,7 @@
 
 This repository is submitted in partial fullfillment of a H.Dip in Science in Data Analytics.
 
-**Martin Cusack**
+**Name: Martin Cusack**
 
 **Student ID: G00239124**
 ***
