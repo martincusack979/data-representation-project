@@ -1,6 +1,6 @@
 import mysql.connector
 import dbconfig as cfg
-class DvdsDAO:
+class dvdsDAO:
     connection=''
     cursor =''
     host=       ''
@@ -93,4 +93,4 @@ class DvdsDAO:
         
         return item
         
-dvdsDAO = DvdsDAO()
+dvdsDAO = dvdsDAO()
